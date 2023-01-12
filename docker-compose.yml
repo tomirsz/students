@@ -1,0 +1,17 @@
+services:
+  db:
+    container_name: laravel-postgres
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: laravel
+      POSTGRES_DB: students
+    ports:
+    - 5444:5432
+    volumes:
+      - postgres_data_laravel:/var/lib/postgresql/data
+
+volumes:
+  postgres_data_laravel:
+    driver: local
